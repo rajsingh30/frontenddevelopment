@@ -30,13 +30,14 @@ fieldset {
             display: inline-block;
             text-align: center;
             width: 80px;
-            color: red;
+            background:darkred;
         }
         .label-input-ranges {
             display: inline-block;
             text-align: center;
             width: 80px;
-            color:darkblue;
+            background: purple;
+
         }
 
             #preview{
@@ -45,7 +46,8 @@ fieldset {
             }
 
             input:hover,
-        label:hover {
+            label:hover,
+            select:hover {
             font-size: 40px;
         }
 </style>
@@ -70,14 +72,14 @@ fieldset {
         <label for="age">Age:</label><input type="number" min="0" max="99" step="1" value="18" id="age" name="age" required><br>
         <label for="dateofbirth">Date of Birth:</label><input type="date" name="dateofbirth" id="dateofbirth" placeholder="dd/mm/yyyy"><br>
         <label for="color">Favourite color:</label><input type="color" name="favcolor" id="color"><br>
-        <label for="cities" id="common">Which country:</label>
+        <label for="cities" >Which country:</label>
         <select name="cities" id="cities">
             <option></option>
-            <option>India</option>
-            <option>Pakistan</option>
-            <option>SouthAfrica</option>
-            <option>Australia</option>
-            <option>USA</option>
+            <option value="india">India</option>
+            <option value="pakistan">Pakistan</option>
+            <option value="southafrica">SouthAfrica</option>
+            <option value="australia">Australia</option>
+            <option value="usa">USA</option>
         </select><br>
     </fieldset> 
 
