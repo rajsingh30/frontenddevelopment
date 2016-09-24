@@ -29,14 +29,18 @@
 <div id="right_side">
 </div>
 <script>
-    var numberoffaces=0;
+    var numberoffaces=5;
 	var theleftside=document.getElementById("left_side");
 	var therightside=document.getElementById("right_side");
-	var left_position,top_position;
+	var theBody = document.getElementsByTagName("body")[0];
 	function generatefaces(){
-
-        while(numberoffaces<5){
-
+		    while (theleftside.firstChild) {
+                theleftside.removeChild(theleftside.firstChild);
+            }
+            while (therightside.firstChild) {
+                therightside.removeChild(therightside.firstChild);
+            }
+        for(var i=0;i<numberoffaces;i++){
       	this_img=document.createElement("img");
       	this_img.src="smile.png";
 		top_position=Math.random()*401;
@@ -46,14 +50,26 @@
 	    left_position=Math.floor(left_position); 
 	    this_img.style.left=left_position+'px';
         theleftside.appendChild(this_img);
-		numberoffaces++;
-}
-       leftSideImages=theleftside.cloneNode(true);
-        leftSideImages.removeChild(leftSideImages.lastChild);
-		therightside.appendChild(leftSideImages);
-      
+		
+   }
+         leftSideImages = theleftside.cloneNode(true);
+            leftSideImages.removeChild(leftSideImages.lastChild);
+            therightside.appendChild(leftSideImages);
 
+              theleftside.lastChild.onclick = function nextLevel(event){
+                event.stopPropagation();
+                 numberoffaces += 5;
+                 generatefaces();
+ }
+            
+
+ 
  }generatefaces();
+  theBody.onclick = function gameOver() {
+            alert("Game Over!");
+            theBody.onclick = null;
+            theleftside.lastChild.onclick = null;
+        }
 
 </script>
 </body>
