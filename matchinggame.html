@@ -31,21 +31,30 @@
 <script>
     var numberoffaces=0;
 	var theleftside=document.getElementById("left_side");
+	var therightside=document.getElementById("right_side");
 	var left_position,top_position;
 	function generatefaces(){
-      while(numberoffaces<5){
-      	this_img=document.createElement('img');
+
+        while(numberoffaces<5){
+
+      	this_img=document.createElement("img");
       	this_img.src="smile.png";
-		top_position=Math.random()*400;
+		top_position=Math.random()*401;
 	    top_position=Math.floor(top_position); 
 	    this_img.style.top=top_position+'px';
-	    left_position=Math.random()*400;
+	    left_position=Math.random()*401;
 	    left_position=Math.floor(left_position); 
 	    this_img.style.left=left_position+'px';
-		theleftside.appendChild(this_img);
+        theleftside.appendChild(this_img);
 		numberoffaces++;
-	}
 }
+       leftSideImages=theleftside.cloneNode(true);
+        leftSideImages.removeChild(leftSideImages.lastChild);
+		therightside.appendChild(leftSideImages);
+      
+
+ }generatefaces();
+
 </script>
 </body>
 </html>
